@@ -431,20 +431,6 @@ while (i < SizeOf(input_list))
   UnlinkReference()
   ScaleToEm(${em_ascent}, ${em_descent})
 
-  # broken bar に貼り付ける素材準備 (パイプ記号を使うため、後述のパイプ破断線化より前に処理する)
-  Select(0u007c); Copy()
-  Select(0u0090); Paste(); Scale(100, 25)
-
-  # パイプの破断線化 (broken bar を縦に拡大)
-  Select(0u00a6); Copy()
-  Select(0u007c); Paste()
-  Scale(100, 114)
-
-  # 破断線化したパイプ記号と broken bar の区別を付きやすくする
-  Select(0u0090); Copy()
-  Select(0u00a6); Paste(); PasteWithOffset(0, 350); PasteWithOffset(0, -350)
-  Select(0u0090); Clear()
-
   # 0 生成
   Select(0u004f); Copy()
   Select(0u0030); Paste(); Scale(99, 100)
