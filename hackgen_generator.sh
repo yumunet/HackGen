@@ -2742,19 +2742,19 @@ $fontforge_command -script ${tmpdir}/${modified_genjyuu_generator} 2> $redirecti
 # Generate powerline Symbol
 $fontforge_command -script ${tmpdir}/${modified_hack_powerline_generator} 2> $redirection_stderr || exit 4
 
-# Generate powerline Symbol
+# Generate powerline Symbol - 35
 $fontforge_command -script ${tmpdir}/${modified_hack35_powerline_generator} 2> $redirection_stderr || exit 4
 
 # Generate Modified HackGen Nerd Symbol
 $fontforge_command -script ${tmpdir}/${modified_hackgen_nerd_symbol_generator} 2> $redirection_stderr || exit 4
 
-# Generate Modified HackGen Nerd Symbol
+# Generate Modified HackGen35 Nerd Symbol
 $fontforge_command -script ${tmpdir}/${modified_hackgen35_nerd_symbol_generator} 2> $redirection_stderr || exit 4
 
 # Generate Modified HackGen Console Nerd Symbol
 $fontforge_command -script ${tmpdir}/${modified_hackgen_nerd_console_symbol_generator} 2> $redirection_stderr || exit 4
 
-# Generate Modified HackGen Console Nerd Symbol
+# Generate Modified HackGen35 Console Nerd Symbol
 $fontforge_command -script ${tmpdir}/${modified_hackgen35_nerd_console_symbol_generator} 2> $redirection_stderr || exit 4
 
 # Generate Hack evacuation symbol
