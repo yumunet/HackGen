@@ -11,3 +11,6 @@ function mvBuild() {
 "${BASE_DIR}/hackgen_generator.sh" "$PREFIX" \
 && "${BASE_DIR}/os2_patch.sh" "$PREFIX" \
 && mvBuild
+
+seconds=${SECONDS}
+echo "build time: $((${seconds}/60))m $((${seconds}%60))s"
