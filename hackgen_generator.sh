@@ -6,6 +6,16 @@ hackgen_version="2.5.3"
 
 is_parallelize_pyftmerge=true
 echo "Parallelize pyftmerge: ${is_parallelize_pyftmerge}"
+
+if [ "$2" = "single" ]
+then
+  is_single_build=true
+  is_parallelize_pyftmerge=false
+  echo "Enabled single build"
+else
+  is_single_build=false
+fi
+
 # Set familyname
 familyname_preffix="$1"
 hackgen_familyname=${familyname_preffix}"HackGen"
@@ -3011,6 +3021,12 @@ do
     pyftmerge "hinted_${hackgen_filename}" "${hackgen_evacuation_symbol_familyname}${hackgen_familyname_suffix}-${style}.ttf"
     pyftmerge merged.ttf "$marge_genjyuu_regular"
     mv merged.ttf "${hackgen_filename}"
+
+    if $is_single_build
+    then
+      echo "*Build only ${hackgen_filename}"
+      break
+    fi
 
     # HackGen Console
     echo "pyftmerge: ${hackgen_console_filename}"
