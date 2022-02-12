@@ -1,3 +1,19 @@
+# フォーク内容
+
+## 変更点
+* パイプ `|` の破断線化を解除
+
+## ビルド環境
+* OS: Ubuntu 20.04.3 LTS (WSL)
+* Tools
+  * ttfautohint: 1.8.3
+  * fonttools: 3.44.0
+  * fontforge: 20201107
+
+[Windowsでの環境構築からビルドまでの方法](/BUILD_ON_WINDOWS.md)
+
+<br/>
+
 # プログラミングフォント 白源 (はくげん／HackGen)
 
 HackGen is a composite font of Hack and GenJyuu-Gothic.
