@@ -2221,7 +2221,7 @@ Print("Generate extraction evacuation symbol from hinting for HackGen35")
 hack_list  = ["${tmpdir}/${modified_hack35_evacuate_from_hinting_regular}", \\
                      "${tmpdir}/${modified_hack35_evacuate_from_hinting_bold}"]
 fontfamily        = "${hackgen35_evacuation_symbol_familyname}"
-fontfamilysuffix  = "${hackgen_familyname_suffix}"
+fontfamilysuffix  = "${hackgen35_familyname_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
@@ -2397,7 +2397,7 @@ Print("Generate extraction box drawing light for HackGen35")
 hack_list  = ["${tmpdir}/${modified_hack35_box_drawing_light_regular}", \\
                      "${tmpdir}/${modified_hack35_box_drawing_light_bold}"]
 fontfamily        = "${hackgen35_box_drawing_light_familyname}"
-fontfamilysuffix  = "${hackgen_familyname_suffix}"
+fontfamilysuffix  = "${hackgen35_familyname_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
@@ -2833,22 +2833,22 @@ $fontforge_command -script ${tmpdir}/${hackgen_box_drawing_light_generator} 2> $
 $fontforge_command -script ${tmpdir}/${hackgen35_box_drawing_light_generator} 2> $redirection_stderr || exit 4
 
 # Add hinting HackGen Regular
-for f in ${hackgen_familyname}-Regular.ttf ${hackgen_familyname}${hackgen_console_suffix}-Regular.ttf
+for f in ${hackgen_familyname}${hackgen_familyname_suffix}-Regular.ttf ${hackgen_familyname}${hackgen_console_suffix}-Regular.ttf
 do
   ttfautohint -m hinting_post_processing/hackgen-regular-ctrl.txt -l 6 -r 45 -X "12-" -a qsq -D latn -W -I "$f" "hinted_${f}"
 done
 # Add hinting HackGen Bold
-for f in ${hackgen_familyname}-Bold.ttf ${hackgen_familyname}${hackgen_console_suffix}-Bold.ttf
+for f in ${hackgen_familyname}${hackgen_familyname_suffix}-Bold.ttf ${hackgen_familyname}${hackgen_console_suffix}-Bold.ttf
 do
   ttfautohint -m hinting_post_processing/hackgen-bold-ctrl.txt -l 6 -r 45 -X "12-" -a qsq -D latn -W -I "$f" "hinted_${f}"
 done
 # Add hinting HackGen35 Regular
-for f in ${hackgen35_familyname}-Regular.ttf ${hackgen35_familyname}${hackgen_console_suffix}-Regular.ttf
+for f in ${hackgen35_familyname}${hackgen35_familyname_suffix}-Regular.ttf ${hackgen35_familyname}${hackgen_console_suffix}-Regular.ttf
 do
   ttfautohint -m hinting_post_processing/hackgen35-regular-ctrl.txt -l 6 -r 45 -X "12-" -a qsq -D latn -W -I "$f" "hinted_${f}"
 done
 # Add hinting HackGen35 Bold
-for f in ${hackgen35_familyname}-Bold.ttf ${hackgen35_familyname}${hackgen_console_suffix}-Bold.ttf
+for f in ${hackgen35_familyname}${hackgen35_familyname_suffix}-Bold.ttf ${hackgen35_familyname}${hackgen_console_suffix}-Bold.ttf
 do
   ttfautohint -m hinting_post_processing/hackgen35-bold-ctrl.txt -l 6 -r 45 -X "12-" -a qsq -D latn -W -I "$f" "hinted_${f}"
 done
@@ -2868,14 +2868,14 @@ do
     marge_genjyuu35_console_regular="${tmpdir}/${modified_genjyuu35_console_bold}.ttf"
   fi
 
-  hackgen_filename="${hackgen_familyname}-${style}.ttf"
+  hackgen_filename="${hackgen_familyname}${hackgen_familyname_suffix}-${style}.ttf"
   hackgen_console_filename="${hackgen_familyname}${hackgen_console_suffix}-${style}.ttf"
-  hackgen35_filename="${hackgen35_familyname}-${style}.ttf"
+  hackgen35_filename="${hackgen35_familyname}${hackgen35_familyname_suffix}-${style}.ttf"
   hackgen35_console_filename="${hackgen35_familyname}${hackgen_console_suffix}-${style}.ttf"
 
-  hackgen_nerd_filename="${hackgen_nerd_familyname}-${style}.ttf"
+  hackgen_nerd_filename="${hackgen_nerd_familyname}${hackgen_familyname_suffix}-${style}.ttf"
   hackgen_nerd_console_filename="${hackgen_nerd_familyname}${hackgen_console_suffix}-${style}.ttf"
-  hackgen35_nerd_filename="${hackgen35_nerd_familyname}-${style}.ttf"
+  hackgen35_nerd_filename="${hackgen35_nerd_familyname}${hackgen35_familyname_suffix}-${style}.ttf"
   hackgen35_nerd_console_filename="${hackgen35_nerd_familyname}${hackgen_console_suffix}-${style}.ttf"
 
   if $is_parallelize_pyftmerge
