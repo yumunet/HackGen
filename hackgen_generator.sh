@@ -18,6 +18,7 @@ fi
 
 # Set familyname
 familyname_preffix="$1"
+familyname_suffix="Y"
 hackgen_familyname=${familyname_preffix}"HackGen"
 hackgen_familyname_suffix=""
 hackgen35_familyname=${hackgen_familyname}"35"
@@ -1687,6 +1688,7 @@ fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
 copyright         = "Copyright (c) 2019, Yuko Otawara"
 version           = "${hackgen_version}"
+fontfamilysuffix_global = "${familyname_suffix}"
 
 # Begin loop of regular and bold
 i = 0
@@ -1699,18 +1701,24 @@ while (i < SizeOf(fontstyle_list))
 
   # Set configuration
   if (fontfamilysuffix != "")
-        SetFontNames(fontfamily + fontfamilysuffix + "-" + fontstyle_list[i], \\
-                     fontfamily + " " + fontfamilysuffix, \\
-                     fontfamily + " " + fontfamilysuffix + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = fontfamilysuffix + "-"
+        fontfamilysuffix_family   = " " + fontfamilysuffix
   else
-        SetFontNames(fontfamily + "-" + fontstyle_list[i], \\
-                     fontfamily, \\
-                     fontfamily + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = ""
+        fontfamilysuffix_family   = ""
   endif
+  if (fontfamilysuffix_global != "")
+        fontfamilysuffix_global_fontname = "-" + fontfamilysuffix_global + "-"
+        fontfamilysuffix_global_family   = " " + fontfamilysuffix_global
+  else
+        fontfamilysuffix_global_fontname = ""
+        fontfamilysuffix_global_family   = ""
+  endif
+  SetFontNames(fontfamily + fontfamilysuffix_fontname + fontfamilysuffix_global_fontname + fontstyle_list[i], \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family, \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family + " " + fontstyle_list[i], \\
+               fontstyle_list[i], \\
+               copyright, version)
   SetTTFName(0x409, 2, fontstyle_list[i])
   SetTTFName(0x409, 3, "FontForge 2.0 : " + \$fullname + " : " + Strftime("%d-%m-%Y", 0))
   ScaleToEm(${em_ascent}, ${em_descent})
@@ -1777,6 +1785,7 @@ fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
 copyright         = "Copyright (c) 2019, Yuko Otawara"
 version           = "${hackgen_version}"
+fontfamilysuffix_global = "${familyname_suffix}"
 
 # Begin loop of regular and bold
 i = 0
@@ -1789,18 +1798,24 @@ while (i < SizeOf(fontstyle_list))
 
   # Set configuration
   if (fontfamilysuffix != "")
-        SetFontNames(fontfamily + fontfamilysuffix + "-" + fontstyle_list[i], \\
-                     fontfamily + " " + fontfamilysuffix, \\
-                     fontfamily + " " + fontfamilysuffix + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = fontfamilysuffix + "-"
+        fontfamilysuffix_family   = " " + fontfamilysuffix
   else
-        SetFontNames(fontfamily + "-" + fontstyle_list[i], \\
-                     fontfamily, \\
-                     fontfamily + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = ""
+        fontfamilysuffix_family   = ""
   endif
+  if (fontfamilysuffix_global != "")
+        fontfamilysuffix_global_fontname = "-" + fontfamilysuffix_global + "-"
+        fontfamilysuffix_global_family   = " " + fontfamilysuffix_global
+  else
+        fontfamilysuffix_global_fontname = ""
+        fontfamilysuffix_global_family   = ""
+  endif
+  SetFontNames(fontfamily + fontfamilysuffix_fontname + fontfamilysuffix_global_fontname + fontstyle_list[i], \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family, \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family + " " + fontstyle_list[i], \\
+               fontstyle_list[i], \\
+               copyright, version)
   SetTTFName(0x409, 2, fontstyle_list[i])
   SetTTFName(0x409, 3, "FontForge 2.0 : " + \$fullname + " : " + Strftime("%d-%m-%Y", 0))
   ScaleToEm(${em_ascent}, ${em_descent})
@@ -1868,6 +1883,7 @@ fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
 copyright         = "Copyright (c) 2019, Yuko Otawara"
 version           = "${hackgen_version}"
+fontfamilysuffix_global = "${familyname_suffix}"
 
 # Begin loop of regular and bold
 i = 0
@@ -1880,18 +1896,24 @@ while (i < SizeOf(fontstyle_list))
 
   # Set configuration
   if (fontfamilysuffix != "")
-        SetFontNames(fontfamily + fontfamilysuffix + "-" + fontstyle_list[i], \\
-                     fontfamily + " " + fontfamilysuffix, \\
-                     fontfamily + " " + fontfamilysuffix + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = fontfamilysuffix + "-"
+        fontfamilysuffix_family   = " " + fontfamilysuffix
   else
-        SetFontNames(fontfamily + "-" + fontstyle_list[i], \\
-                     fontfamily, \\
-                     fontfamily + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = ""
+        fontfamilysuffix_family   = ""
   endif
+  if (fontfamilysuffix_global != "")
+        fontfamilysuffix_global_fontname = "-" + fontfamilysuffix_global + "-"
+        fontfamilysuffix_global_family   = " " + fontfamilysuffix_global
+  else
+        fontfamilysuffix_global_fontname = ""
+        fontfamilysuffix_global_family   = ""
+  endif
+  SetFontNames(fontfamily + fontfamilysuffix_fontname + fontfamilysuffix_global_fontname + fontstyle_list[i], \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family, \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family + " " + fontstyle_list[i], \\
+               fontstyle_list[i], \\
+               copyright, version)
   SetTTFName(0x409, 2, fontstyle_list[i])
   SetTTFName(0x409, 3, "FontForge 2.0 : " + \$fullname + " : " + Strftime("%d-%m-%Y", 0))
   ScaleToEm(${em_ascent}, ${em_descent})
@@ -1959,6 +1981,7 @@ fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
 copyright         = "Copyright (c) 2019, Yuko Otawara"
 version           = "${hackgen_version}"
+fontfamilysuffix_global = "${familyname_suffix}"
 
 # Begin loop of regular and bold
 i = 0
@@ -1971,18 +1994,24 @@ while (i < SizeOf(fontstyle_list))
 
   # Set configuration
   if (fontfamilysuffix != "")
-        SetFontNames(fontfamily + fontfamilysuffix + "-" + fontstyle_list[i], \\
-                     fontfamily + " " + fontfamilysuffix, \\
-                     fontfamily + " " + fontfamilysuffix + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = fontfamilysuffix + "-"
+        fontfamilysuffix_family   = " " + fontfamilysuffix
   else
-        SetFontNames(fontfamily + "-" + fontstyle_list[i], \\
-                     fontfamily, \\
-                     fontfamily + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = ""
+        fontfamilysuffix_family   = ""
   endif
+  if (fontfamilysuffix_global != "")
+        fontfamilysuffix_global_fontname = "-" + fontfamilysuffix_global + "-"
+        fontfamilysuffix_global_family   = " " + fontfamilysuffix_global
+  else
+        fontfamilysuffix_global_fontname = ""
+        fontfamilysuffix_global_family   = ""
+  endif
+  SetFontNames(fontfamily + fontfamilysuffix_fontname + fontfamilysuffix_global_fontname + fontstyle_list[i], \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family, \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family + " " + fontstyle_list[i], \\
+               fontstyle_list[i], \\
+               copyright, version)
   SetTTFName(0x409, 2, fontstyle_list[i])
   SetTTFName(0x409, 3, "FontForge 2.0 : " + \$fullname + " : " + Strftime("%d-%m-%Y", 0))
   ScaleToEm(${em_ascent}, ${em_descent})
@@ -2050,6 +2079,7 @@ fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
 copyright         = "Copyright (c) 2019, Yuko Otawara"
 version           = "${hackgen_version}"
+fontfamilysuffix_global = "${familyname_suffix}"
 
 # Begin loop of regular and bold
 i = 0
@@ -2062,18 +2092,24 @@ while (i < SizeOf(fontstyle_list))
 
   # Set configuration
   if (fontfamilysuffix != "")
-        SetFontNames(fontfamily + fontfamilysuffix + "-" + fontstyle_list[i], \\
-                     fontfamily + " " + fontfamilysuffix, \\
-                     fontfamily + " " + fontfamilysuffix + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = fontfamilysuffix + "-"
+        fontfamilysuffix_family   = " " + fontfamilysuffix
   else
-        SetFontNames(fontfamily + "-" + fontstyle_list[i], \\
-                     fontfamily, \\
-                     fontfamily + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = ""
+        fontfamilysuffix_family   = ""
   endif
+  if (fontfamilysuffix_global != "")
+        fontfamilysuffix_global_fontname = "-" + fontfamilysuffix_global + "-"
+        fontfamilysuffix_global_family   = " " + fontfamilysuffix_global
+  else
+        fontfamilysuffix_global_fontname = ""
+        fontfamilysuffix_global_family   = ""
+  endif
+  SetFontNames(fontfamily + fontfamilysuffix_fontname + fontfamilysuffix_global_fontname + fontstyle_list[i], \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family, \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family + " " + fontstyle_list[i], \\
+               fontstyle_list[i], \\
+               copyright, version)
   SetTTFName(0x409, 2, fontstyle_list[i])
   SetTTFName(0x409, 3, "FontForge 2.0 : " + \$fullname + " : " + Strftime("%d-%m-%Y", 0))
   ScaleToEm(${em_ascent}, ${em_descent})
@@ -2139,6 +2175,7 @@ fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
 copyright         = "Copyright (c) 2019, Yuko Otawara"
 version           = "${hackgen_version}"
+fontfamilysuffix_global = "${familyname_suffix}"
 
 # Begin loop of regular and bold
 i = 0
@@ -2151,18 +2188,24 @@ while (i < SizeOf(fontstyle_list))
 
   # Set configuration
   if (fontfamilysuffix != "")
-        SetFontNames(fontfamily + fontfamilysuffix + "-" + fontstyle_list[i], \\
-                     fontfamily + " " + fontfamilysuffix, \\
-                     fontfamily + " " + fontfamilysuffix + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = fontfamilysuffix + "-"
+        fontfamilysuffix_family   = " " + fontfamilysuffix
   else
-        SetFontNames(fontfamily + "-" + fontstyle_list[i], \\
-                     fontfamily, \\
-                     fontfamily + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = ""
+        fontfamilysuffix_family   = ""
   endif
+  if (fontfamilysuffix_global != "")
+        fontfamilysuffix_global_fontname = "-" + fontfamilysuffix_global + "-"
+        fontfamilysuffix_global_family   = " " + fontfamilysuffix_global
+  else
+        fontfamilysuffix_global_fontname = ""
+        fontfamilysuffix_global_family   = ""
+  endif
+  SetFontNames(fontfamily + fontfamilysuffix_fontname + fontfamilysuffix_global_fontname + fontstyle_list[i], \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family, \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family + " " + fontstyle_list[i], \\
+               fontstyle_list[i], \\
+               copyright, version)
   SetTTFName(0x409, 2, fontstyle_list[i])
   SetTTFName(0x409, 3, "FontForge 2.0 : " + \$fullname + " : " + Strftime("%d-%m-%Y", 0))
   ScaleToEm(${em_ascent}, ${em_descent})
@@ -2227,6 +2270,7 @@ fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
 copyright         = "Copyright (c) 2019, Yuko Otawara"
 version           = "${hackgen_version}"
+fontfamilysuffix_global = "${familyname_suffix}"
 
 # Begin loop of regular and bold
 i = 0
@@ -2239,18 +2283,24 @@ while (i < SizeOf(fontstyle_list))
 
   # Set configuration
   if (fontfamilysuffix != "")
-        SetFontNames(fontfamily + fontfamilysuffix + "-" + fontstyle_list[i], \\
-                     fontfamily + " " + fontfamilysuffix, \\
-                     fontfamily + " " + fontfamilysuffix + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = fontfamilysuffix + "-"
+        fontfamilysuffix_family   = " " + fontfamilysuffix
   else
-        SetFontNames(fontfamily + "-" + fontstyle_list[i], \\
-                     fontfamily, \\
-                     fontfamily + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = ""
+        fontfamilysuffix_family   = ""
   endif
+  if (fontfamilysuffix_global != "")
+        fontfamilysuffix_global_fontname = "-" + fontfamilysuffix_global + "-"
+        fontfamilysuffix_global_family   = " " + fontfamilysuffix_global
+  else
+        fontfamilysuffix_global_fontname = ""
+        fontfamilysuffix_global_family   = ""
+  endif
+  SetFontNames(fontfamily + fontfamilysuffix_fontname + fontfamilysuffix_global_fontname + fontstyle_list[i], \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family, \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family + " " + fontstyle_list[i], \\
+               fontstyle_list[i], \\
+               copyright, version)
   SetTTFName(0x409, 2, fontstyle_list[i])
   SetTTFName(0x409, 3, "FontForge 2.0 : " + \$fullname + " : " + Strftime("%d-%m-%Y", 0))
   ScaleToEm(${em_ascent}, ${em_descent})
@@ -2315,6 +2365,7 @@ fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
 copyright         = "Copyright (c) 2019, Yuko Otawara"
 version           = "${hackgen_version}"
+fontfamilysuffix_global = "${familyname_suffix}"
 
 # Begin loop of regular and bold
 i = 0
@@ -2327,18 +2378,24 @@ while (i < SizeOf(fontstyle_list))
 
   # Set configuration
   if (fontfamilysuffix != "")
-        SetFontNames(fontfamily + fontfamilysuffix + "-" + fontstyle_list[i], \\
-                     fontfamily + " " + fontfamilysuffix, \\
-                     fontfamily + " " + fontfamilysuffix + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = fontfamilysuffix + "-"
+        fontfamilysuffix_family   = " " + fontfamilysuffix
   else
-        SetFontNames(fontfamily + "-" + fontstyle_list[i], \\
-                     fontfamily, \\
-                     fontfamily + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = ""
+        fontfamilysuffix_family   = ""
   endif
+  if (fontfamilysuffix_global != "")
+        fontfamilysuffix_global_fontname = "-" + fontfamilysuffix_global + "-"
+        fontfamilysuffix_global_family   = " " + fontfamilysuffix_global
+  else
+        fontfamilysuffix_global_fontname = ""
+        fontfamilysuffix_global_family   = ""
+  endif
+  SetFontNames(fontfamily + fontfamilysuffix_fontname + fontfamilysuffix_global_fontname + fontstyle_list[i], \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family, \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family + " " + fontstyle_list[i], \\
+               fontstyle_list[i], \\
+               copyright, version)
   SetTTFName(0x409, 2, fontstyle_list[i])
   SetTTFName(0x409, 3, "FontForge 2.0 : " + \$fullname + " : " + Strftime("%d-%m-%Y", 0))
   ScaleToEm(${em_ascent}, ${em_descent})
@@ -2403,6 +2460,7 @@ fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
 copyright         = "Copyright (c) 2019, Yuko Otawara"
 version           = "${hackgen_version}"
+fontfamilysuffix_global = "${familyname_suffix}"
 
 # Begin loop of regular and bold
 i = 0
@@ -2415,18 +2473,24 @@ while (i < SizeOf(fontstyle_list))
 
   # Set configuration
   if (fontfamilysuffix != "")
-        SetFontNames(fontfamily + fontfamilysuffix + "-" + fontstyle_list[i], \\
-                     fontfamily + " " + fontfamilysuffix, \\
-                     fontfamily + " " + fontfamilysuffix + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = fontfamilysuffix + "-"
+        fontfamilysuffix_family   = " " + fontfamilysuffix
   else
-        SetFontNames(fontfamily + "-" + fontstyle_list[i], \\
-                     fontfamily, \\
-                     fontfamily + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = ""
+        fontfamilysuffix_family   = ""
   endif
+  if (fontfamilysuffix_global != "")
+        fontfamilysuffix_global_fontname = "-" + fontfamilysuffix_global + "-"
+        fontfamilysuffix_global_family   = " " + fontfamilysuffix_global
+  else
+        fontfamilysuffix_global_fontname = ""
+        fontfamilysuffix_global_family   = ""
+  endif
+  SetFontNames(fontfamily + fontfamilysuffix_fontname + fontfamilysuffix_global_fontname + fontstyle_list[i], \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family, \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family + " " + fontstyle_list[i], \\
+               fontstyle_list[i], \\
+               copyright, version)
   SetTTFName(0x409, 2, fontstyle_list[i])
   SetTTFName(0x409, 3, "FontForge 2.0 : " + \$fullname + " : " + Strftime("%d-%m-%Y", 0))
   ScaleToEm(${em_ascent}, ${em_descent})
@@ -2491,6 +2555,7 @@ fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
 copyright         = "Copyright (c) 2019, Yuko Otawara"
 version           = "${hackgen_version}"
+fontfamilysuffix_global = "${familyname_suffix}"
 
 # Begin loop of regular and bold
 i = 0
@@ -2503,18 +2568,24 @@ while (i < SizeOf(fontstyle_list))
 
   # Set configuration
   if (fontfamilysuffix != "")
-        SetFontNames(fontfamily + fontfamilysuffix + "-" + fontstyle_list[i], \\
-                     fontfamily + " " + fontfamilysuffix, \\
-                     fontfamily + " " + fontfamilysuffix + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = fontfamilysuffix + "-"
+        fontfamilysuffix_family   = " " + fontfamilysuffix
   else
-        SetFontNames(fontfamily + "-" + fontstyle_list[i], \\
-                     fontfamily, \\
-                     fontfamily + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = ""
+        fontfamilysuffix_family   = ""
   endif
+  if (fontfamilysuffix_global != "")
+        fontfamilysuffix_global_fontname = "-" + fontfamilysuffix_global + "-"
+        fontfamilysuffix_global_family   = " " + fontfamilysuffix_global
+  else
+        fontfamilysuffix_global_fontname = ""
+        fontfamilysuffix_global_family   = ""
+  endif
+  SetFontNames(fontfamily + fontfamilysuffix_fontname + fontfamilysuffix_global_fontname + fontstyle_list[i], \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family, \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family + " " + fontstyle_list[i], \\
+               fontstyle_list[i], \\
+               copyright, version)
   SetTTFName(0x409, 2, fontstyle_list[i])
   SetTTFName(0x409, 3, "FontForge 2.0 : " + \$fullname + " : " + Strftime("%d-%m-%Y", 0))
   ScaleToEm(${em_ascent}, ${em_descent})
@@ -2579,6 +2650,7 @@ fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
 copyright         = "Copyright (c) 2019, Yuko Otawara"
 version           = "${hackgen_version}"
+fontfamilysuffix_global = "${familyname_suffix}"
 
 # Begin loop of regular and bold
 i = 0
@@ -2591,18 +2663,24 @@ while (i < SizeOf(fontstyle_list))
 
   # Set configuration
   if (fontfamilysuffix != "")
-        SetFontNames(fontfamily + fontfamilysuffix + "-" + fontstyle_list[i], \\
-                     fontfamily + " " + fontfamilysuffix, \\
-                     fontfamily + " " + fontfamilysuffix + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = fontfamilysuffix + "-"
+        fontfamilysuffix_family   = " " + fontfamilysuffix
   else
-        SetFontNames(fontfamily + "-" + fontstyle_list[i], \\
-                     fontfamily, \\
-                     fontfamily + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = ""
+        fontfamilysuffix_family   = ""
   endif
+  if (fontfamilysuffix_global != "")
+        fontfamilysuffix_global_fontname = "-" + fontfamilysuffix_global + "-"
+        fontfamilysuffix_global_family   = " " + fontfamilysuffix_global
+  else
+        fontfamilysuffix_global_fontname = ""
+        fontfamilysuffix_global_family   = ""
+  endif
+  SetFontNames(fontfamily + fontfamilysuffix_fontname + fontfamilysuffix_global_fontname + fontstyle_list[i], \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family, \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family + " " + fontstyle_list[i], \\
+               fontstyle_list[i], \\
+               copyright, version)
   SetTTFName(0x409, 2, fontstyle_list[i])
   SetTTFName(0x409, 3, "FontForge 2.0 : " + \$fullname + " : " + Strftime("%d-%m-%Y", 0))
   ScaleToEm(${em_ascent}, ${em_descent})
@@ -2667,6 +2745,7 @@ fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
 copyright         = "Copyright (c) 2019, Yuko Otawara"
 version           = "${hackgen_version}"
+fontfamilysuffix_global = "${familyname_suffix}"
 
 # Begin loop of regular and bold
 i = 0
@@ -2679,18 +2758,24 @@ while (i < SizeOf(fontstyle_list))
 
   # Set configuration
   if (fontfamilysuffix != "")
-        SetFontNames(fontfamily + fontfamilysuffix + "-" + fontstyle_list[i], \\
-                     fontfamily + " " + fontfamilysuffix, \\
-                     fontfamily + " " + fontfamilysuffix + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = fontfamilysuffix + "-"
+        fontfamilysuffix_family   = " " + fontfamilysuffix
   else
-        SetFontNames(fontfamily + "-" + fontstyle_list[i], \\
-                     fontfamily, \\
-                     fontfamily + " " + fontstyle_list[i], \\
-                     fontstyle_list[i], \\
-                     copyright, version)
+        fontfamilysuffix_fontname = ""
+        fontfamilysuffix_family   = ""
   endif
+  if (fontfamilysuffix_global != "")
+        fontfamilysuffix_global_fontname = "-" + fontfamilysuffix_global + "-"
+        fontfamilysuffix_global_family   = " " + fontfamilysuffix_global
+  else
+        fontfamilysuffix_global_fontname = ""
+        fontfamilysuffix_global_family   = ""
+  endif
+  SetFontNames(fontfamily + fontfamilysuffix_fontname + fontfamilysuffix_global_fontname + fontstyle_list[i], \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family, \\
+               fontfamily + fontfamilysuffix_family + fontfamilysuffix_global_family + " " + fontstyle_list[i], \\
+               fontstyle_list[i], \\
+               copyright, version)
   SetTTFName(0x409, 2, fontstyle_list[i])
   SetTTFName(0x409, 3, "FontForge 2.0 : " + \$fullname + " : " + Strftime("%d-%m-%Y", 0))
   ScaleToEm(${em_ascent}, ${em_descent})
@@ -3106,6 +3191,15 @@ rm -f "${hackgen_nerd_familyname}"*.ttx
 rm -f "${hackgen35_nerd_familyname}"*.ttx
 rm -f "${hackgen_box_drawing_light_familyname}"*.ttf
 rm -f "${hackgen35_box_drawing_light_familyname}"*.ttf
+
+# Add suffix to all file names
+find . -type f -maxdepth 1 -name "HackGen*.ttf" -or -name "HackGen*.ttf_orig" | while read -r filename
+do
+  echo "$filename" | sed -r -e "s/-(Regular|Bold)/-${familyname_suffix}&/" | while read -r filename_new
+  do
+    mv "$filename" "$filename_new"
+  done
+done
 
 # Remove temporary directory
 if [ "${leaving_tmp_flag}" = "false" ]
