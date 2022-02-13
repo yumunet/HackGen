@@ -3189,7 +3189,7 @@ rm -f "${hackgen_box_drawing_light_familyname}"*.ttf
 rm -f "${hackgen35_box_drawing_light_familyname}"*.ttf
 
 # Add suffix to all file names
-find . -maxdepth 1 -type f -name "HackGen*.ttf" -or -name "HackGen*.ttf_orig" | while read -r filename
+find . -maxdepth 1 -type f -name "${hackgen_familyname}*.ttf" -or -name "${hackgen_familyname}*.ttf_orig" | while read -r filename
 do
   echo "$filename" | sed -r -e "s/-(Regular|Bold)/-${familyname_suffix}&/" | while read -r filename_new
   do
