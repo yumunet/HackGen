@@ -2,7 +2,7 @@
 
 base_dir=$(cd $(dirname $0); pwd)
 # HackGen Generator
-hackgen_version="2.5.3 + 1"
+hackgen_version="2.5.3 + 2"
 
 is_parallelize_pyftmerge=true
 echo "Parallelize pyftmerge: ${is_parallelize_pyftmerge}"
