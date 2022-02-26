@@ -64,7 +64,7 @@ sudo apt-get install fontforge
 ### Git を使う場合
 ※cloneする前に、Git の `core.autocrlf` 設定を、`input` か `false` にしておくこと。そうしないとファイルの改行コードが勝手に LF から CRLF に変換され、うまくビルドできなくなってしまう。
 ```
-git clone https://github.com/yumunet/HackGen
+git clone https://github.com/yumunet/HackGen-Y
 ```
 
 
