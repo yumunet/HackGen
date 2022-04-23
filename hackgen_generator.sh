@@ -2,7 +2,7 @@
 
 base_dir=$(cd $(dirname $0); pwd)
 # HackGen Generator
-hackgen_version="2.5.3 + 2"
+hackgen_version="2.6.3 + 2"
 
 is_parallelize_pyftmerge=true
 echo "Parallelize pyftmerge: ${is_parallelize_pyftmerge}"
@@ -32,6 +32,8 @@ hackgen_evacuation_symbol_familyname=${hackgen_familyname}"EvacuationSymbol"
 hackgen35_evacuation_symbol_familyname=${hackgen35_familyname}"EvacuationSymbol"
 hackgen_box_drawing_light_familyname=${hackgen_familyname}"BoxDrawingLight"
 hackgen35_box_drawing_light_familyname=${hackgen35_familyname}"BoxDrawingLight"
+
+copyright='###COPYRIGHT###'
 
 # Set ascent and descent (line width parameters)
 hackgen_ascent=938
@@ -86,6 +88,8 @@ nerd_patched_hack_regular_src="Hack Regular Nerd Font Complete.ttf"
 nerd_patched_hack_bold_src="Hack Bold Nerd Font Complete.ttf"
 genjyuu_regular_src="GenJyuuGothicL-Monospace-Regular.ttf"
 genjyuu_bold_src="GenJyuuGothicL-Monospace-Bold.ttf"
+
+fix_genjyuu_bold_src="fix_GenJyuuGothicL-Monospace-Bold.sfd"
 
 modified_hack_material_generator="modified_hack_material_generator.pe"
 modified_hack_material_regular="Modified-Hack-Material-Regular.sfd"
@@ -209,6 +213,8 @@ then
   echo "Error: $genjyuu_regular_src and/or $genjyuu_bold_src not found" >&2
   exit 1
 fi
+
+input_fix_genjyuu_bold=`find $fonts_directories -follow -iname "$fix_genjyuu_bold_src" | head -n 1`
 
 # Search improved legibility file
 input_improved_legibility_regular=`find $fonts_directories -follow -iname improved_legibility-Regular.sfd | head -n 1`
@@ -456,7 +462,7 @@ while (i < SizeOf(input_list))
   Select(0u0022)
   SelectMore(0u0027)
   SelectMore(0u0060)
-  Scale(109, 106)
+  Scale(110)
 
   # ; : , . の拡大
   Select(0u003a)
@@ -468,12 +474,6 @@ while (i < SizeOf(input_list))
   Select(0u003b); Move(0, 18) # ;
   Select(0u002e); Move(0, 5)  # .
   Select(0u002c); Move(0, -8) # ,
-
-  # クォーテーションの拡大
-  Select(0u0027)
-  SelectMore(0u0022)
-  SelectMore(0u0060)
-  Scale(108, 104)
 
   # Eclipse Pleiades 半角スペース記号 (U+1d1c) 対策
   Select(0u054d); Copy()
@@ -1233,6 +1233,14 @@ while (i < SizeOf(input_list))
   MergeFonts(reiwa_list[i])
   MergeFonts(ideographic_space)
   MergeFonts(input_list[i])
+  if (fontstyle_list[i] == "Bold")
+    Select(0u00AB)
+    SelectMore(0u00AE)
+    SelectMore(0u00BB)
+    SelectMore(0u00BF)
+    Clear()
+    MergeFonts("$input_fix_genjyuu_bold")
+  endif
 
   SelectWorthOutputting()
   UnlinkReference()
@@ -1309,6 +1317,20 @@ while (i < SizeOf(input_list))
   # 下限で見切れているグリフの調整
   Select(0uff47); Scale(100, 91) # ｇ
   Select(0uff4a); Scale(100, 91) # ｊ
+
+  # カーニング情報を削除
+  lookups = GetLookups("GPOS"); numlookups = SizeOf(lookups); j = 0;
+  while (j < numlookups)
+    if (Strstr(lookups[j], 'halt') >= 0 \\
+        || Strstr(lookups[j], 'vhal') >= 0 \\
+        || Strstr(lookups[j], 'palt') >= 0 \\
+        || Strstr(lookups[j], 'vpal') >= 0 \\
+        || Strstr(lookups[j], 'kern') >= 0 \\
+      )
+      RemoveLookup(lookups[j]);
+    endif
+    j++
+  endloop
 
   # Save modified GenJyuuGothicL
   Print("Save " + output_list[i])
@@ -1402,6 +1424,15 @@ while (i < SizeOf(input_list))
   MergeFonts(reiwa_list[i])
   MergeFonts(ideographic_space)
   MergeFonts(input_list[i])
+  if (fontstyle_list[i] == "Bold")
+    Select(0u00AB)
+    SelectMore(0u00AE)
+    SelectMore(0u00BB)
+    SelectMore(0u00BF)
+    Clear()
+    MergeFonts("$input_fix_genjyuu_bold")
+  endif
+
   SelectWorthOutputting()
   UnlinkReference()
   ScaleToEm(${em_ascent}, ${em_descent})
@@ -1473,6 +1504,20 @@ while (i < SizeOf(input_list))
   Select(0u2019);Scale(145) ; SetWidth(${hackgen35_full_width}) # ’
   Select(0u201c);Scale(145) ; SetWidth(${hackgen35_full_width}) # “
   Select(0u201d);Scale(145) ; SetWidth(${hackgen35_full_width}) # ”
+
+  # カーニング情報を削除
+  lookups = GetLookups("GPOS"); numlookups = SizeOf(lookups); j = 0;
+  while (j < numlookups)
+    if (Strstr(lookups[j], 'halt') >= 0 \\
+        || Strstr(lookups[j], 'vhal') >= 0 \\
+        || Strstr(lookups[j], 'palt') >= 0 \\
+        || Strstr(lookups[j], 'vpal') >= 0 \\
+        || Strstr(lookups[j], 'kern') >= 0 \\
+      )
+      RemoveLookup(lookups[j]);
+    endif
+    j++
+  endloop
 
   # Save modified GenJyuuGothicL
   Print("Save " + output_list[i])
@@ -1682,7 +1727,7 @@ fontfamilysuffix  = "${hackgen_familyname_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
-copyright         = "Copyright (c) 2019, Yuko Otawara"
+copyright         = "${copyright}"
 version           = "${hackgen_version}"
 fontfamilysuffix_global = "${familyname_suffix}"
 
@@ -1779,7 +1824,7 @@ fontfamilysuffix  = "${hackgen_familyname_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
-copyright         = "Copyright (c) 2019, Yuko Otawara"
+copyright         = "${copyright}"
 version           = "${hackgen_version}"
 fontfamilysuffix_global = "${familyname_suffix}"
 
@@ -1877,7 +1922,7 @@ fontfamilysuffix  = "${hackgen35_familyname_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
-copyright         = "Copyright (c) 2019, Yuko Otawara"
+copyright         = "${copyright}"
 version           = "${hackgen_version}"
 fontfamilysuffix_global = "${familyname_suffix}"
 
@@ -1975,7 +2020,7 @@ fontfamilysuffix  = "${hackgen_console_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
-copyright         = "Copyright (c) 2019, Yuko Otawara"
+copyright         = "${copyright}"
 version           = "${hackgen_version}"
 fontfamilysuffix_global = "${familyname_suffix}"
 
@@ -2073,7 +2118,7 @@ fontfamilysuffix  = "${hackgen_console_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
-copyright         = "Copyright (c) 2019, Yuko Otawara"
+copyright         = "${copyright}"
 version           = "${hackgen_version}"
 fontfamilysuffix_global = "${familyname_suffix}"
 
@@ -2169,7 +2214,7 @@ fontfamilysuffix  = "${hackgen_familyname_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
-copyright         = "Copyright (c) 2019, Yuko Otawara"
+copyright         = "${copyright}"
 version           = "${hackgen_version}"
 fontfamilysuffix_global = "${familyname_suffix}"
 
@@ -2264,7 +2309,7 @@ fontfamilysuffix  = "${hackgen35_familyname_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
-copyright         = "Copyright (c) 2019, Yuko Otawara"
+copyright         = "${copyright}"
 version           = "${hackgen_version}"
 fontfamilysuffix_global = "${familyname_suffix}"
 
@@ -2359,7 +2404,7 @@ fontfamilysuffix  = "${hackgen_familyname_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
-copyright         = "Copyright (c) 2019, Yuko Otawara"
+copyright         = "${copyright}"
 version           = "${hackgen_version}"
 fontfamilysuffix_global = "${familyname_suffix}"
 
@@ -2454,7 +2499,7 @@ fontfamilysuffix  = "${hackgen35_familyname_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
-copyright         = "Copyright (c) 2019, Yuko Otawara"
+copyright         = "${copyright}"
 version           = "${hackgen_version}"
 fontfamilysuffix_global = "${familyname_suffix}"
 
@@ -2549,7 +2594,7 @@ fontfamilysuffix  = "${hackgen_console_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
-copyright         = "Copyright (c) 2019, Yuko Otawara"
+copyright         = "${copyright}"
 version           = "${hackgen_version}"
 fontfamilysuffix_global = "${familyname_suffix}"
 
@@ -2644,7 +2689,7 @@ fontfamilysuffix  = "${hackgen35_familyname_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
-copyright         = "Copyright (c) 2019, Yuko Otawara"
+copyright         = "${copyright}"
 version           = "${hackgen_version}"
 fontfamilysuffix_global = "${familyname_suffix}"
 
@@ -2739,7 +2784,7 @@ fontfamilysuffix  = "${hackgen_console_suffix}"
 fontstyle_list    = ["Regular", "Bold"]
 fontweight_list   = [400,       700]
 panoseweight_list = [5,         8]
-copyright         = "Copyright (c) 2019, Yuko Otawara"
+copyright         = "${copyright}"
 version           = "${hackgen_version}"
 fontfamilysuffix_global = "${familyname_suffix}"
 

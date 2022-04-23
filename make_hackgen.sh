@@ -10,7 +10,9 @@ function mvBuild() {
 }
 
 "${BASE_DIR}/hackgen_generator.sh" "$PREFIX" "$SINGLE" \
+&& "${BASE_DIR}/copyright.sh" "$PREFIX" \
 && "${BASE_DIR}/os2_patch.sh" "$PREFIX" \
+&& "${BASE_DIR}/cmap_patch.sh" "$PREFIX" \
 && mvBuild
 
 seconds=${SECONDS}
