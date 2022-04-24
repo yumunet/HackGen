@@ -3,8 +3,8 @@
 BASE_DIR=$(cd $(dirname $0); pwd)
 PREFIX="$1"
 
-FONT_PATTERN=${PREFIX}'HackGen[^3]*.ttf'
-FONT35_PATTERN=${PREFIX}'HackGen35*.ttf'
+FONT_PATTERN=${PREFIX}'HG[^3]*.ttf'
+FONT35_PATTERN=${PREFIX}'HG35*.ttf'
 
 CMAP_MASTER="${BASE_DIR}/source/cmap_format_14_master"
 TMP_CMAP_MASTER='tmp_cmap_format_14_master'
