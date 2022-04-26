@@ -5,7 +5,7 @@
 * 全角丸括弧 `（` `）` の文字単位での中央寄せを解除　※開きを右寄せ、閉じを左寄せに
 
 ## ビルド環境
-* OS: Ubuntu 20.04.3 LTS (WSL)
+* OS: Ubuntu 20.04.4 LTS (WSL)
 * Tools
   * ttfautohint: 1.8.3
   * fonttools: 3.44.0
