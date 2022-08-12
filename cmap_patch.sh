@@ -57,31 +57,30 @@ function proc() {
 
 echo '### Start cmap_patch ###'
 
-font_list=$(ls ${BASE_DIR}/${FONT_PATTERN}; ls ${BASE_DIR}/${FONT35_PATTERN})
+font_list=$(ls ${BASE_DIR}/${FONT_PATTERN} ${BASE_DIR}/${FONT35_PATTERN})
 
 for f in $font_list; do
-  echo "cmap_patch: $f"
+  echo "Start cmap_patch: $f"
   (
+    # 並列処理時に競合しないように各ファイル名に接頭辞を付ける（これら変数の変更はこのサブシェル下でのみ有効）
     file_suffix="_$(basename "${f%%.ttf}")"
-    # これら変数の変更はサブシェル内でのみ適用される
     TMP_CMAP_MASTER+=$file_suffix
     TMP_TTX+=$file_suffix
     GENERATED_CMAP+=$file_suffix
 
     proc "$f"
-    
-  ) > "${f}.cmap_patch_log" 2>&1 &
+
+  ) > "${f}.cmap_patch_output" 2>&1 &
 done
 
 wait
 
-# 並列処理の各出力内容を出力
+# 並列処理からの出力内容をまとめて出力
 for f in $font_list; do
-  log_file_name="${f}.cmap_patch_log"
-  echo "$log_file_name" | sed -r "s/(.+)\.cmap_patch_log/cmap_patch log: \1/"
-  cat "$log_file_name"
-  rm "$log_file_name"
-  echo
+  output_filename="${f}.cmap_patch_output"
+  echo "$output_filename" | sed -r "s/(.+)\.cmap_patch_output/# cmap_patch output: \1/"
+  cat "$output_filename"
+  rm "$output_filename"
 done
 
-rm -f "${GENERATED_CMAP}_"* "${TMP_CMAP_MASTER}_"* "${TMP_TTX}_"* *.ttx *.ttf_orig
+rm -f "$GENERATED_CMAP"_* "$TMP_CMAP_MASTER"_* "$TMP_TTX"_* *.ttx *.ttf_orig
