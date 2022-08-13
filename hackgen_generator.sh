@@ -2708,6 +2708,7 @@ do
 
   if $is_single_build
   then
+    wait
     outputPyftmergeOutput ${hackgen_filename}
     echo "*Build only ${hackgen_filename}"
     break
