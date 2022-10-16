@@ -2,9 +2,9 @@
 
 base_dir=$(cd $(dirname $0); pwd)
 # HackGen Generator
-hackgen_version="2.7.0 + 2"
+hackgen_version="$2 + 2"
 
-if [ "$2" = "single" ]
+if [ "$3" = "single" ]
 then
   is_single_build=true
   echo "Enabled single build"
@@ -1183,11 +1183,16 @@ while (i < SizeOf(input_list))
 
   # Edit zenkaku brackets
   Print("Edit zenkaku brackets")
-  bracket_move = $((${hackgen_half_width} / 2 + ${hackgen_half_width} / 30))
-  Select(0uff3b); Move(-bracket_move, 0); SetWidth(${hackgen_full_width}) # [
-  Select(0uff3d); Move( bracket_move, 0); SetWidth(${hackgen_full_width}) # ]
-  Select(0uff5b); Move(-bracket_move, 0); SetWidth(${hackgen_full_width}) # {
-  Select(0uff5d); Move( bracket_move, 0); SetWidth(${hackgen_full_width}) # }
+  bracket_move = $((${hackgen_half_width} / 7 * 3))
+  bracket_scale = 104
+  Select(0uff3b) # [
+  SelectMore(0uff5b) # {
+  Scale(bracket_scale)
+  Move(-bracket_move, 0); SetWidth(${hackgen_full_width})
+  Select(0uff3d) # ]
+  SelectMore(0uff5d) # }
+  Scale(bracket_scale)
+  Move( bracket_move, 0); SetWidth(${hackgen_full_width})
 
   # 全角 ，．‘’“” の調整
   Select(0uff0e);Scale(155) ; SetWidth(${hackgen_full_width}) # ．
@@ -1374,11 +1379,16 @@ while (i < SizeOf(input_list))
 
   # Edit zenkaku brackets
   Print("Edit zenkaku brackets")
-  bracket_move = $((${hackgen35_half_width} / 2 + ${hackgen35_half_width} / 30))
-  Select(0uff3b); Move(-bracket_move, 0); SetWidth(${hackgen35_full_width}) # [
-  Select(0uff3d); Move( bracket_move, 0); SetWidth(${hackgen35_full_width}) # ]
-  Select(0uff5b); Move(-bracket_move, 0); SetWidth(${hackgen35_full_width}) # {
-  Select(0uff5d); Move( bracket_move, 0); SetWidth(${hackgen35_full_width}) # }
+  bracket_move = $((${hackgen35_half_width} / 7 * 3))
+  bracket_scale = 104
+  Select(0uff3b) # [
+  SelectMore(0uff5b) # {
+  Scale(bracket_scale)
+  Move(-bracket_move, 0); SetWidth(${hackgen35_full_width})
+  Select(0uff3d) # ]
+  SelectMore(0uff5d) # }
+  Scale(bracket_scale)
+  Move( bracket_move, 0); SetWidth(${hackgen35_full_width})
 
   # 全角 ，．‘’“” の調整
   Select(0uff0e);Scale(155) ; SetWidth(${hackgen35_full_width}) # ．
