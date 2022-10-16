@@ -2719,7 +2719,7 @@ do
   if $is_single_build
   then
     wait
-    outputPyftmergeOutput ${hackgen_filename}
+    outputPyftmergeOutput "$hackgen_filename"
     echo "*Build only ${hackgen_filename}"
     break
   fi
@@ -2834,7 +2834,7 @@ do
     ${hackgen_nerd_jp_console_filename}
     ${hackgen35_nerd_jp_console_filename}
   "
-  outputPyftmergeOutput ${pyftmerged_ttf_files}
+  outputPyftmergeOutput "$pyftmerged_ttf_files"
 
 done
 
