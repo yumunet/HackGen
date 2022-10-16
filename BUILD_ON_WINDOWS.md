@@ -80,12 +80,13 @@ sudo apt-get install fontforge
 このリポジトリのページ右上にある緑色の Code > Download ZIP で直接ダウンロードする。
 
 ### Git を使う場合
-※cloneする前に、Git の `core.autocrlf` 設定を、`input` か `false` にしておくこと。そうしないとファイルの改行コードが勝手に LF から CRLF に変換され、うまくビルドできなくなってしまう。
+※ファイルの改行コードが勝手に LF から CRLF に変換されてビルドできなくなってしまうため、`core.autocrlf` 設定を `false` にする。
 ```
+git config --global core.autocrlf false
 git clone https://github.com/yumunet/HackGen-Y
 ```
 
-### ソースコードを Ubuntu のディレクトリに置く
+### 3-1. ソースコードを Ubuntu のディレクトリに置く
 普通に Windows のディレクトリに置いても構いませんが、Ubuntu のディレクトリに置いた方がビルドが高速化します。
 ※自分の環境では [ad596c7](https://github.com/yumunet/HackGen-Y/commit/ad596c73bb11ef24cdf8087ad6972d4b64f449e2) の時点でビルド時間が、Windowsディレクトリで12分13秒、Ubuntuディレクトリで8分27秒だったので、約1.3倍の高速化。
 
