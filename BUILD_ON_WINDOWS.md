@@ -51,11 +51,11 @@ sudo pip2 install fonttools
 ```
 
 ### fontforge
-1. [Releases · fontforge/fontforge (GitHub)](https://github.com/fontforge/fontforge/releases) からHackGenのビルド環境に合わせて「FontForge 2020 March Release」の「FontForge-2020-03-14-67687b0-x86_64.AppImage」ファイルをダウンロード
+1. [Releases · fontforge/fontforge (GitHub)](https://github.com/fontforge/fontforge/releases) からHackGenのビルド環境に合わせて「FontForge 20th Anniversary Edition」の「FontForge-2020-11-07-21ad4a1-x86_64.AppImage」ファイルをダウンロード
 2. ダウンロードした.AppImageファイルを展開（※[パスについて](#パスについて)）
 ```
 cd 【.AppImageがあるディレクトリのパス】
-./FontForge-2020-03-14-67687b0-x86_64.AppImage --appimage-extract
+./FontForge-2020-11-07-21ad4a1-x86_64.AppImage --appimage-extract
 ```
 3. カレントディレクトリに生成された `squashfs-root\usr\bin` ディレクトリの絶対パスを、Windowsの環境変数 `Path` に追加する
 4. Windowsの環境変数を再読み込みさせるため、Ubuntuを再起動
