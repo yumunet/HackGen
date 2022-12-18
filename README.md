@@ -1,11 +1,11 @@
-# フォーク内容
+# HackGen-Y (HG Y)
 
-## 変更点
+### 変更点
 * パイプ `|` の破断線化を解除
 * 全角丸括弧 `（` `）` の文字単位での中央寄せを解除　※開きを右寄せ、閉じを左寄せに
 
-## ビルド環境
-* OS: Ubuntu 20.04 LTS (WSL)
+### ビルド環境
+* OS: Ubuntu 22.04 LTS (Docker+WSL)
 * Tools
   * ttfautohint: 1.8.3
   * fonttools: 3.44.0
@@ -13,7 +13,7 @@
 
 [Windowsでの環境構築からビルドまでの方法](/BUILD_ON_WINDOWS.md)
 
-<br/>
+以下、原文です。
 
 # プログラミングフォント 白源 (はくげん／HackGen)
 
