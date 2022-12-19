@@ -217,6 +217,10 @@ input_ideographic_space=`find $fonts_directories -follow -iname Ideographic_Spac
 input_nerd_patched_hack_regular=`find $fonts_directories -follow -iname "$nerd_patched_hack_regular_src" | head -n 1`
 input_nerd_patched_hack_bold=`find $fonts_directories -follow -iname "$nerd_patched_hack_bold_src"    | head -n 1`
 
+# Search slashzero
+input_slashzero_regular=`find $fonts_directories -follow -iname Hack-slashedzero-Regular.ttf | head -n 1`
+input_slashzero_bold=`find $fonts_directories -follow -iname Hack-slashedzero-Bold.ttf | head -n 1`
+
 # Check filename
 [ "$(basename $input_hack_regular)" != "$hack_regular_src" ] &&
   echo "Warning: ${input_hack_regular} does not seem to be Hack Regular" >&2
@@ -416,6 +420,7 @@ Print("Generate modified Hack Material")
 # Set parameters
 input_list  = ["${input_hack_regular}",    "${input_hack_bold}"]
 input_mod_arrow_list  = ["${input_mod_arrow_regular}",    "${input_mod_arrow_bold}"]
+input_slashedzero_list = ["${input_slashzero_regular}", "${input_slashzero_bold}"]
 output_list = ["${modified_hack_material_regular}", "${modified_hack_material_bold}"]
 
 # Begin loop of regular and bold
@@ -432,17 +437,17 @@ while (i < SizeOf(input_list))
   Clear()
   MergeFonts(input_mod_arrow_list[i])
 
+  # 0 をスラッシュゼロにする
+  Open(input_slashedzero_list[i])
+  Select(0u0030); Copy()
+  Open(input_list[i])
+  Select(0u0030)
+  Clear()
+  Paste()
+
   SelectWorthOutputting()
   UnlinkReference()
   ScaleToEm(${em_ascent}, ${em_descent})
-
-  # 0 生成
-  Select(0u004f); Copy()
-  Select(0u0030); Paste(); Scale(99, 100)
-  Select(0u00b7); Copy()
-  Select(0ufff0); Paste(); Scale(75, 100); Copy()
-  Select(0u0030); PasteInto()
-  Select(0ufff0); Clear()
 
   # クォーテーションの拡大
   Select(0u0022)
