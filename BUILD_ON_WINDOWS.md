@@ -3,10 +3,10 @@ Windows 10以降で、HackGen-Yをビルドする方法です。
 ※コード内の【】で囲んでいる部分は、その指示通りの文字列に置き換えてください。
 
 
-## Dockerでビルドする場合
+# DockerとWSLでビルドする場合
 Dockerfileとdocker-compose.ymlを作っているので、Windows上での操作だけでビルドできます（Ubuntuにコマンドを打つ必要はありません）。また、ビルド環境の管理が簡単です。
 
-### 前準備
+### 準備
 1. WSLをインストール（[見出し1](#1-windows-subsystem-for-linux-wsl-をインストール)の手順2まで）
 2. [Docker Desktop](https://www.docker.com/products/docker-desktop/)をインストール
 3. ソースコードをダウンロード（詳細は[見出し3](#3-ソースコードをダウンロード)を参照）
@@ -19,7 +19,7 @@ cd 【ソースコードのディレクトリパス】
 docker-compose up
 ```
 
-
+# WSLのみでビルドする場合
 ## 1. Windows Subsystem for Linux (WSL) をインストール
 
 WindowsでLinuxを動かすやつ。
