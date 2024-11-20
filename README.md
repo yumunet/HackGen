@@ -22,6 +22,8 @@ HackGen is a composite font of Hack and GenJyuu-Gothic.
 
 白源 (はくげん／HackGen) は、プログラミング向け英文フォント Hack と、源ノ角ゴシックの派生フォント源柔ゴシックを合成したプログラミングフォントです。  
 
+![image](https://github.com/yuru7/HackGen/assets/13458509/ea0c0dae-58ea-4712-8ed2-570274b87039)
+
 2つのフォントをただ合成しただけではなく、一部の独自改変により更なる視認性向上を図っています。
 
 * 文字幅 半角1:全角2 の正統派な等幅フォント (文字幅 半角3:全角5 バージョンも同梱)
@@ -60,18 +62,17 @@ HackGen is a composite font of Hack and GenJyuu-Gothic.
 |`HackGen`<br/>![hackgen](https://github.com/yuru7/HackGen/raw/image/hikaku_hackgen.png)|`HackGen35`<br/>![hackgen35](https://github.com/yuru7/HackGen/raw/image/hikaku_hackgen35.png)|
 |`HackGen Console`<br/>![hackgen console](https://github.com/yuru7/HackGen/raw/image/hikaku_hackgen-console.png)|`HackGen35 Console`<br/>![hackgen35 console](https://github.com/yuru7/HackGen/raw/image/hikaku_hackgen35-console.png)|
 
-また、追加で提供している `HackGenNerd` `HackGen35Nerd` フォントファミリーには、[Nerd Fonts](https://www.nerdfonts.com/) を追加合成しており、Font Awesome をはじめとした多くのアイコンフォントが表示できるようになります。  
-> ⚠ Nerd Fonts の仕様 ([Fix invalid code points for some glyphs](https://github.com/ryanoasis/nerd-fonts/issues/365)) により、一部のコードポイントにおいて漢字グリフが Nerd Fonts 収録グリフに置き換わっています。(例: `﨑 (たつさき/U+FA11)` など) Nerd Fonts を必要とする用途以外は、通常の HackGen を利用することをオススメします。
+また、追加で提供している `HackGen NF` `HackGen35 NF` フォントファミリーには、[Nerd Fonts](https://www.nerdfonts.com/) を追加合成しており、Font Awesome をはじめとした多くのアイコンフォントが表示できるようになります。  
 
 ## フォントのインストール
 
 ビルド済みの ttf ファイルは GitHub のリリースページからダウンロードできます。  
 ダウンロードした ttf ファイルは、各 OS に応じた手順でインストールしてください。
 
-[Release - HackGen](https://github.com/yuru7/HackGen/releases)
+[Release - HackGen](https://github.com/yuru7/HackGen/releases/latest)
 
 * `HackGen_バージョン.zip` は従来の HackGen/HackGen35
-* `HackGenNerd_バージョン.zip` は従来の HackGen/HackGen35 に [Nerd Fonts](https://www.nerdfonts.com/) を追加合成したもの
+* `HackGen_NF_バージョン.zip` は従来の HackGen/HackGen35 に [Nerd Fonts](https://www.nerdfonts.com/) を追加合成したもの
 
 ### Homebrew によるフォントのインストール
 
@@ -79,7 +80,6 @@ Mac の Homebrew ユーザーは以下のコマンドでもインストールす
 ※Homebrew リポジトリに追加してくださったのはユーザーさんなので、使用方法などをリポジトリオーナーはサポートできません。悪しからずご了承ください。
 
 ```
-$ brew tap homebrew/cask-fonts
 $ brew install font-hackgen
 $ brew install font-hackgen-nerd
 ```
