@@ -16,7 +16,10 @@ Copyright (c) 2015 JIKASEI FONT KOUBOU
 Copyright (c) 2014, Ryan L McIntyre (https://ryanlmcintyre.com).
 
 [HackGen]
-Copyright (c) 2019, Yuko OTAWARA'
+Copyright (c) 2019, Yuko OTAWARA
+
+[HakuMoto]
+Copyright (c) 2024 yumu'
 
 for P in ${BASE_DIR}/${FONT_PATTERN}
 do
