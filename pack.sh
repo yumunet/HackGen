@@ -4,8 +4,8 @@
 hackgen_version=$(sed -n -E "/^hackgen_version=\".*?\"/p" make_hackgen.sh | sed -E "s/^.+=\"(.*?)\"/\1/")
 additional_version=$(sed -n -E "/^additional_version=\".*?\"/p" hackgen_generator.sh | sed -E "s/^.+=\"(.*?)\"/\1/")
 version="v$hackgen_version+$additional_version"
-normal_name="HG-Y_$version"
-nerdfonts_name="HG-Y_NF_$version"
+normal_name="HakuMoto_$version"
+nerdfonts_name="HakuMoto_NF_$version"
 licenses_dir="LICENSES"
 
 function copyLicenses() {

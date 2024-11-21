@@ -15,8 +15,8 @@ fi
 
 # Set familyname
 familyname_preffix="$1"
-familyname_suffix="Y"
-hackgen_familyname=${familyname_preffix}"HG"
+familyname_suffix=""
+hackgen_familyname=${familyname_preffix}"HakuMoto"
 hackgen_familyname_suffix=""
 hackgen35_familyname=${hackgen_familyname}"35"
 hackgen35_familyname_suffix=""

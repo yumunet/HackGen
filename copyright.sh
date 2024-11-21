@@ -4,7 +4,7 @@ BASE_DIR="$(cd $(dirname $0); pwd)"
 
 PREFIX="$1"
 
-FONT_PATTERN=${PREFIX}'HG*.ttf'
+FONT_PATTERN=${PREFIX}'HakuMoto*.ttf'
 
 COPYRIGHT='[Hack]
 Copyright (c) 2018 Source Foundry Authors
