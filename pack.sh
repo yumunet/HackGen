@@ -13,6 +13,7 @@ function copyLicenses() {
   mkdir -p "$dest_dir"
   cp ./source/LICENSE_* "$dest_dir"
   cp ./LICENSE_HackGen "$dest_dir"
+  cp ./LICENSE "$dest_dir"
 }
 
 echo "pack"
