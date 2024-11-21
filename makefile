@@ -9,3 +9,11 @@ run:
 .PHONY: build
 build:
 	@make run CMD=./make_hackgen.sh
+
+.PHONY: pack
+pack:
+	@make run CMD=./pack.sh
+
+.PHONY: build+pack
+build+pack:
+	@make run CMD="bash -c \"./make_hackgen.sh && ./pack.sh\""

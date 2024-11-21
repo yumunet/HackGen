@@ -1,6 +1,7 @@
 FROM ubuntu:22.04
 
 RUN apt-get update && apt-get -y --no-install-recommends install \
+    7zip \
     ca-certificates \
     curl \
     fontforge=1:20201107* \

@@ -2,7 +2,8 @@
 
 base_dir=$(cd $(dirname $0); pwd)
 # HackGen Generator
-hackgen_version="$2+3"
+additional_version="3"
+hackgen_version="$2+$additional_version"
 
 if [ "$3" = "single" ]
 then
