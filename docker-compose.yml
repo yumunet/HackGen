@@ -1,7 +1,6 @@
-version: "3"
 services:
-    builder:
-        build: .
-        container_name: hackgen-y
-        volumes:
-            - .:/src
+  main:
+    build: .
+    container_name: hackgen-y
+    volumes:
+        - .:/src
