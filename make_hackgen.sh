@@ -8,6 +8,7 @@ SINGLE="$2" # 引数2: "single"でHackGen-Regular.ttfのみを作成する。出
 
 function mvBuild() {
   mkdir -p "${BASE_DIR}/build/"
+  rm -f "${BASE_DIR}/build/"*
   mv -f "${BASE_DIR}/"HG*.ttf "${BASE_DIR}/build/"
 }
 
