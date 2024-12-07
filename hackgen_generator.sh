@@ -8,7 +8,7 @@ hackgen_version="$2+$additional_version"
 if [ "$3" = "single" ]
 then
   is_single_build=true
-  echo "Enabled single build"
+  echo "ENABLED SINGLE BUILD"
 else
   is_single_build=false
 fi
