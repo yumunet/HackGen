@@ -1080,7 +1080,6 @@ hack = "${tmpdir}/${modified_hack_regular}"
 input_list  = ["${input_genjyuu_regular}",    "${input_genjyuu_bold}"]
 improved_legibility_list  = ["${input_improved_legibility_regular}",    "${input_improved_legibility_bold}"]
 reiwa_list  = ["${input_reiwa_regular}",    "${input_reiwa_bold}"]
-ideographic_space = "$input_ideographic_space"
 output_list = ["${modified_genjyuu_regular}", "${modified_genjyuu_bold}"]
 
 fontstyle_list    = ["Regular", "Bold"]
@@ -1112,7 +1111,6 @@ while (i < SizeOf(input_list))
   Print("Open " + input_list[i])
   Open(improved_legibility_list[i])
   MergeFonts(reiwa_list[i])
-  MergeFonts(ideographic_space)
   MergeFonts(input_list[i])
   if (fontstyle_list[i] == "Bold")
     Select(0u00AB)
@@ -1276,7 +1274,6 @@ hack = "${tmpdir}/${modified_hack35_regular}"
 input_list  = ["${input_genjyuu_regular}",    "${input_genjyuu_bold}"]
 improved_legibility_list  = ["${input_improved_legibility_regular}",    "${input_improved_legibility_bold}"]
 reiwa_list  = ["${input_reiwa_regular}",    "${input_reiwa_bold}"]
-ideographic_space = "$input_ideographic_space"
 output_list = ["${modified_genjyuu35_regular}", "${modified_genjyuu35_bold}"]
 
 fontstyle_list    = ["Regular", "Bold"]
@@ -1308,7 +1305,6 @@ while (i < SizeOf(input_list))
   Print("Open " + input_list[i])
   Open(improved_legibility_list[i])
   MergeFonts(reiwa_list[i])
-  MergeFonts(ideographic_space)
   MergeFonts(input_list[i])
   if (fontstyle_list[i] == "Bold")
     Select(0u00AB)
