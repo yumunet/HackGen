@@ -5,11 +5,12 @@
 白元（はくもと / HakuMoto）は、プログラミングフォント「[白源（はくげん / HackGen）](https://github.com/yuru7/HackGen)」のちょっとした改変版です。  
 HakuMoto is a modified version of HackGen, a programming font.
 
-**変更点は以下の3つ。**
+**変更点は以下。**
 
-* 縦線 `|` の破断線化を解除（U+007C）
-* 全角丸括弧 `（`  `）` の文字単位での中央寄せを解除（U+FF08 / U+FF09）
 * ゼロ `0` をドットゼロからスラッシュゼロに変更（U+0030）
+* 縦線 `|` の破断線化を解除（U+007C）
+* 全角スペース `　` の可視化を解除（U+3000）
+* 全角丸括弧 `（`  `）` の文字単位での中央寄せを解除（U+FF08 / U+FF09）
 
 ダウンロードは [Release](https://github.com/yumunet/HakuMoto/releases) からどうぞ！
 
