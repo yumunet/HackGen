@@ -10,6 +10,10 @@ run:
 build:
 	@make run CMD=./make_hackgen.sh
 
+.PHONY: build-single
+build-single:
+	@make run CMD="./make_hackgen.sh \"\" \"single\""
+
 .PHONY: pack
 pack:
 	@make run CMD=./pack.sh
