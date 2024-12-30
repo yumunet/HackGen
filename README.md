@@ -1,6 +1,6 @@
 # 白元（はくもと / HakuMoto）
 
-[![GitHub Release](https://img.shields.io/github/v/release/yumunet/HakuMoto?style=for-the-badge&color=brightgreen)](https://github.com/yumunet/HakuMoto/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/yumunet/HakuMoto?style=for-the-badge&color=brightgreen)](https://github.com/yumunet/HakuMoto/releases/latest)
 
 白元（はくもと / HakuMoto）は、プログラミングフォント「[白源（はくげん / HackGen）](https://github.com/yuru7/HackGen)」のちょっとした改変版です。  
 HakuMoto is a modified version of the programming font HackGen.
